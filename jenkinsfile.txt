@@ -1,19 +1,18 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Building!'
+                script {
+                    sh 'docker build -t my-sample-app .'
+                }
             }
         }
-        stage('Test') {
+        stage('Run Docker Container') {
             steps {
-                echo 'Testing!'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying!'
+                script {
+                    sh 'docker run --rm my-sample-app'
+                }
             }
         }
     }
