@@ -1,3 +1,1 @@
-FROM python:3.10
-COPY . .
-CMD ["python", "main.py"]
+print("Hello , DevOPs World!")
